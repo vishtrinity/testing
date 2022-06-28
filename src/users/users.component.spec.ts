@@ -10,7 +10,7 @@ describe('UsersComponent', () => {
   let component: UsersComponent;
   let fixture: ComponentFixture<UsersComponent>;
   let authService:AuthenticationService;
-  let h1:ElementRef;
+  let h1:HTMLElement;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -38,5 +38,9 @@ describe('UsersComponent', () => {
     
     expect(salary).toEqual("salary Slip");
     //expect(authService.getRegisteredUser).toHaveBeenCalled();
+  })
+
+  it("test h1",()=>{
+   
   })
 });
