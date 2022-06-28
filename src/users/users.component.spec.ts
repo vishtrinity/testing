@@ -1,5 +1,6 @@
 import { ElementRef } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
 import { AppComponent } from 'src/app/app.component';
 import { AuthenticationService } from 'src/core/services/authentication.service';
 
@@ -23,7 +24,7 @@ describe('UsersComponent', () => {
     fixture = TestBed.createComponent(UsersComponent);
     component = fixture.componentInstance;
     authService=TestBed.inject(AuthenticationService);
-    h1=fixture.debugElement.query(h1).nativeElement;
+    h1=fixture.debugElement.query(By.css('h1')).nativeElement;
     fixture.detectChanges();
   }),
 
