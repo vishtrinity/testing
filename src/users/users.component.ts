@@ -9,7 +9,7 @@ import { AuthenticationService } from 'src/core/services/authentication.service'
 export class UsersComponent implements OnInit {
   //SalarySlip:string | undefined;
   constructor(private authService:AuthenticationService) { }
-salaryStatus:String | undefined;
+salaryStatus:string | undefined;
   ngOnInit(): void {
     localStorage.setItem('user','ABC');
   }
@@ -20,14 +20,14 @@ salaryStatus:String | undefined;
     if(this.authService.getRegisteredUser()==='ABC'){
       console.log("inside getSalaryslip")
       console.log(this.authService.getRegisteredUser());
-      this.salaryStatus='recieved';
-    return "salary Slip";
+      this.salaryStatus='salary Slip';
     
     }
     else{
       this.salaryStatus="not recieved";
-    return "no salary slip";
+    
     }
+    return this.salaryStatus;
     
   }
 
