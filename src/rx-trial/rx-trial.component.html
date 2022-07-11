@@ -1,0 +1,39 @@
+<p>rx-trial works!</p>
+
+
+<main>
+
+    <div>
+        <input  type="search" name="searchText" id="searchText" #searchItem  [(ngModel)]="searchTerm">
+        <input type="radio" name="choice" [(ngModel)]="radioChoice" value="byName" >Search By name
+        <input type="radio" name="choice" [(ngModel)]="radioChoice" value="byId">Search By Id
+        <input type="radio" name="choice" [(ngModel)]="radioChoice" value="byUsername">Search By username
+        <button (click)="searchArr()">Search</button>
+    </div>
+    <table>
+        <tr>
+            <th>id</th>
+            <th >name</th>
+            <th appAnimate>userName</th>
+        </tr>
+
+      
+            <tr *ngFor="let user of userArr" >
+            
+                <th >{{user.id}}</th>
+                <th >{{user.name}}</th>
+                <th>{{user.username}}</th>
+            </tr>
+
+        
+        
+
+
+
+    </table>
+
+
+<app-counter></app-counter>
+
+
+</main>

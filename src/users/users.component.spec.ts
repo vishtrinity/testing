@@ -11,6 +11,7 @@ describe('UsersComponent', () => {
   let fixture: ComponentFixture<UsersComponent>;
   let authService:AuthenticationService;
   let h1:HTMLElement;
+ 
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -25,6 +26,8 @@ describe('UsersComponent', () => {
     component = fixture.componentInstance;
     authService=TestBed.inject(AuthenticationService);
     h1=fixture.debugElement.query(By.css('h1')).nativeElement;
+   
+
     fixture.detectChanges();
   }),
 
@@ -41,6 +44,12 @@ describe('UsersComponent', () => {
   })
 
   it("test h1",()=>{
+    let button1=fixture.debugElement.query(By.css('#getUser'));
+    button1.triggerEventHandler('click',{});
+      fixture.detectChanges();
+      expect(h1.textContent).toEqual(component.getSalarySlip())
+    
+
    
   })
 });
