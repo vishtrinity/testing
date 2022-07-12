@@ -1,5 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { ShareCounterDataService } from 'src/core/services/share-counter-data.service';
+import { decrement, increment, reset } from '../counter/state/counter.action';
 
 @Component({
   selector: 'app-counter-buttons',
@@ -12,7 +14,7 @@ export class CounterButtonsComponent implements OnInit {
   @Output()reset=new EventEmitter();
   
 
-  constructor(private sc:ShareCounterDataService) { }
+  constructor(private sc:ShareCounterDataService, private store:Store<{counter:{counter:number}}>) { }
 
   ngOnInit(): void {
     // this.increment=new EventEmitter<void>();
@@ -46,5 +48,20 @@ export class CounterButtonsComponent implements OnInit {
     this.sc.onReset();
   }
 
+
+  onIncrementByStore(){
+    this.store.dispatch(increment());
+  }
+
+
+
+  onDecrementByStore(){
+    this.store.dispatch(decrement())
+  }
+
+
+  onResetByStore(){
+    this.store.dispatch(reset())
+  }
 
 }

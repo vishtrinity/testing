@@ -11,6 +11,8 @@ import { SharedModule } from 'src/shared/shared.module';
 import { CounterComponent } from './obs-trial/counter/counter/counter.component';
 import { CounterOutputComponent } from './obs-trial/counter/counter-output/counter-output.component';
 import { CounterButtonsComponent } from './obs-trial/counter/counter-buttons/counter-buttons.component';
+import { Store, StoreModule } from '@ngrx/store';
+import { counterReducer } from './obs-trial/counter/counter/state/counter.reducer';
 
 
 
@@ -26,8 +28,9 @@ import { CounterButtonsComponent } from './obs-trial/counter/counter-buttons/cou
   ],
   imports: [
     CommonModule,
-    RxTrialRoutingModule,FormsModule,SharedModule
-  ]
+    RxTrialRoutingModule,FormsModule,SharedModule,StoreModule.forRoot({counter:counterReducer})
+  ],
+  providers:[Store]
   
 })
 export class RxTrialModule { }
